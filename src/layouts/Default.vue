@@ -1,5 +1,5 @@
 <template>
-  <div class="layout container">
+  <div class="layout container px-6 lg:px-48">
     <header class="header">
       <g-link class="heading-link" :to="{ name: 'home' }">
         <component :is="titleTag" class="heading">{{ config.siteName }}</component>

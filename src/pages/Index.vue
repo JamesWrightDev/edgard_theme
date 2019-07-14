@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="blog-container bg-white" item-selector=".item" fit-width="true">
+    <div class="blog-container bg-white px:1 lg:px-16" item-selector=".item" fit-width="true">
       <!-- Featured Post -->
       <Featured-Post/>
       <!-- Blog Post Loop -->

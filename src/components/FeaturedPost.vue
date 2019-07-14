@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-featured flex flex-col-reverse lg:flex-row lg:flex-row-reverse lg:flex-no-wrap">
+  <div class="blog-featured flex flex-col-reverse mb-5 lg:flex-row lg:flex-row-reverse lg:flex-no-wrap">
     <div class="blog-featured--content my-5 lg:mg-0">
       <h2
         class="font-bold lg:text-2xl"
