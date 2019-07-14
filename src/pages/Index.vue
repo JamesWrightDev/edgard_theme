@@ -3,23 +3,24 @@
     <div class="header">
       <h2 class="text-6xl my-12 font-mono">Edgar</h2>
     </div>
-    <ul class="articles container flex justify-center lex-wrap">
-      <li class="w-1/2" v-for="{ node } in $page.allBlogPost.edges" :key="node._id">
-        <div class="article rounded m-3 shadow-lg">
-          <g-image :src="node.image" />
+    <div v-masonry class="container" item-selector=".item" fit-width="true">
 
-          <div class="hover">
+    <div v-masonry-tile class="item" v-for="{ node } in $page.allBlogPost.edges" :key="node._id">
+       <div class=" card max-w-xs rounded overflow-hidden shadow-lg mb-5 mr-5">
+          <g-image class="w-full" :src="node.image" />
+          <div>
             <div class="p-5">
               <router-link :to="node.path">
                 <h2 class="font-bold text-xl mb-2">{{node.title}}</h2>
               </router-link>
-              <p>{{node.description}}</p>
+              <p class="mb-5">{{node.description}}</p>
+              <p>{{node.category}}</p>
             </div>
           </div>
 
         </div>
-      </li>
-    </ul>
+    </div>
+  </div>
   </Layout>
 </template>
 
@@ -34,6 +35,7 @@
           description
           path
           image
+          category
         }
       }
     }
@@ -41,11 +43,12 @@
 </page-query>
 
 <style lang="scss">
-.article{
-  img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
+.card{
+  transition: box-shadow 0.8s cubic-bezier(.25,.8,.25,1), transform 0.9s cubic-bezier(.25,.8,.25,1);
+}
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  transform: translateY(-10px);
 }
 </style>
