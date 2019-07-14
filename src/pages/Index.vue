@@ -7,9 +7,9 @@
       <div class="item" v-for="{ node } in $page.allBlogPost.edges" :key="node._id">
         <div class="blog-post flex flex-row mb-5">
           <div class="blog-post--content">
-            <div class="lg:p-5">
+            <div>
               <router-link :to="node.path">
-                <h2 class="font-bold lg:text-3xl mb-2">{{node.title}}</h2>
+                <h2 class="font-bold lg:text-2xl mb-2">{{node.title}}</h2>
               </router-link>
               <p>{{node.date}}</p>
             </div>
