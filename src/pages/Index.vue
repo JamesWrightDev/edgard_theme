@@ -1,26 +1,23 @@
 <template>
   <Layout>
-    <div class="header">
-      <h2 class="text-6xl my-12 font-mono">Edgar</h2>
-    </div>
-    <div v-masonry class="container" item-selector=".item" fit-width="true">
-
-    <div v-masonry-tile class="item" v-for="{ node } in $page.allBlogPost.edges" :key="node._id">
-       <div class=" card max-w-xs rounded overflow-hidden shadow-lg mb-5 mr-5">
-          <g-image class="w-full" :src="node.image" />
-          <div>
-            <div class="p-5">
+    <div class="blog-container bg-white" item-selector=".item" fit-width="true">
+      <!-- Featured Post -->
+      <Featured-Post/>
+      <!-- Blog Post Loop -->
+      <div class="item" v-for="{ node } in $page.allBlogPost.edges" :key="node._id">
+        <div class="blog-post flex flex-row mb-5">
+          <div class="blog-post--content">
+            <div class="lg:p-5">
               <router-link :to="node.path">
-                <h2 class="font-bold text-xl mb-2">{{node.title}}</h2>
+                <h2 class="font-bold lg:text-3xl mb-2">{{node.title}}</h2>
               </router-link>
-              <p class="mb-5">{{node.description}}</p>
-              <p>{{node.category}}</p>
+              <p>{{node.date}}</p>
             </div>
           </div>
-
+          <g-image class="blog-post--image max-w-xs" :src="node.image" />
         </div>
+      </div>
     </div>
-  </div>
   </Layout>
 </template>
 
@@ -41,14 +38,37 @@
     }
   }
 </page-query>
+<script>
+import FeaturedPost from "../components/FeaturedPost"
+
+export default {
+  components: {
+    "Featured-Post": FeaturedPost
+  }
+};
+</script>
 
 <style lang="scss">
-.card{
-  transition: box-shadow 0.8s cubic-bezier(.25,.8,.25,1), transform 0.9s cubic-bezier(.25,.8,.25,1);
+.blog-container {
+  width: 100%;
+  margin: 0 auto;
 }
-.card:hover {
-  cursor: pointer;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  transform: translateY(-10px);
+
+.blog-post {
+  justify-content: space-between;
+  &--content {
+    flex-basis: 60%;
+  }
+
+  &--image {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+
+    @media (min-width: 1024px) {
+      height: 135px;
+      width: 240px;
+    }
+  }
 }
 </style>

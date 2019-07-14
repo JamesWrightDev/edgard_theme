@@ -30,4 +30,10 @@ export default {
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @media (min-width: 1024px) {
+       @apply bg-gray-200;
+
+    }
+}
 </style>
