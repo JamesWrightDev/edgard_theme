@@ -28,7 +28,7 @@
         node {
           _id
           title
-          date (format: "D MMMM, YYYY")
+          date (format: "HH:MM D MMM, YYYY")
           description
           path
           image
