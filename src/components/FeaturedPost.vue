@@ -17,7 +17,7 @@ export default {};
 </script>
 <style lang="scss">
 .blog-featured {
-  height: 300px;
+  max-height: 500px;
   overflow: hidden;
   @media (min-width: 1024px) {
     height: auto;
@@ -25,6 +25,7 @@ export default {};
   &--image {
     width: 100%;
     max-height: 300px;
+    object-fit: cover;
   }
   &--content {
     background-color: white;

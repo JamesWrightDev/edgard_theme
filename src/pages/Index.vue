@@ -9,9 +9,9 @@
           <div class="blog-post--content">
             <div>
               <router-link :to="node.path">
-                <h2 class="font-bold lg:text-2xl mb-2">{{node.title}}</h2>
+                <h2 class="font-bold lg:text-2xl mb-2 blog-post--text">{{node.title}}</h2>
               </router-link>
-              <p>{{node.date}}</p>
+              <p class="text-sm">{{node.date}}</p>
             </div>
           </div>
           <g-image class="blog-post--image max-w-xs" :src="node.image" />
@@ -59,7 +59,9 @@ export default {
   &--content {
     flex-basis: 60%;
   }
-
+  &--text:hover {
+    text-decoration: underline solid blue
+  }
   &--image {
     width: 90px;
     height: 90px;
